@@ -6,7 +6,7 @@
 
 # Koala Clash NixOS Flake
 
-Неофициальный NixOS flake для [Koala Clash](https://github.com/koala-clash/koala-clash).
+Неофициальный NixOS flake для [Koala Clash](https://github.com/coolcoala/koala-clash).
 
 Этот flake предоставляет:
 
