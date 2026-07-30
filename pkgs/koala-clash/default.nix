@@ -29,8 +29,20 @@
   libsecret,
   systemd,
 
-  xorg,
-
+  libx11,
+  libxcb,
+  libxi,
+  libxcursor,
+  libxdamage,
+  libxext,
+  libxfixes,
+  libxrandr,
+  libxrender,
+  libxtst,
+  libxscrnsaver,
+  libxinerama,
+  libxcomposite,
+  libxshmfence,
 }:
 
 stdenv.mkDerivation rec {
@@ -39,7 +51,6 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/coolcoala/koala-clash/releases/download/${version}/Koala.Clash_amd64.deb";
-
     hash = "sha256-ChCDgnnx+vLyONoFiNHlP6RChnjZXlsGbSX6LOt4lxo=";
   };
 
@@ -51,7 +62,6 @@ stdenv.mkDerivation rec {
   ];
 
   buildInputs = [
-
     gtk3
     glib
     nss
@@ -74,20 +84,20 @@ stdenv.mkDerivation rec {
     libsecret
     systemd
 
-    xorg.libX11
-    xorg.libxcb
-    xorg.libXi
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libXScrnSaver
-    xorg.libXinerama
-    xorg.libXcomposite
-    xorg.libxshmfence
+    libx11
+    libxcb
+    libxi
+    libxcursor
+    libxdamage
+    libxext
+    libxfixes
+    libxrandr
+    libxrender
+    libxtst
+    libxscrnsaver
+    libxinerama
+    libxcomposite
+    libxshmfence
   ];
 
   unpackPhase = ''
@@ -102,21 +112,12 @@ stdenv.mkDerivation rec {
     cp -r usr/* $out/ || true
     cp -r opt $out/ || true
 
-    runHook postInstall
-  '';
-
-  postFixup = ''
-    if [ -f "$out/bin/koala-clash" ]; then
-      wrapProgram "$out/bin/koala-clash" \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs}
-    fi
-  '';
-
-  postInstall = ''
     mkdir -p $out/bin
 
     ln -s "$out/opt/Koala.Clash/koala-clash" \
-          "$out/bin/koala-clash"
+      "$out/bin/koala-clash"
+
+    runHook postInstall
   '';
 
   meta = with lib; {
