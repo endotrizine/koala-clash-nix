@@ -117,7 +117,10 @@ stdenv.mkDerivation rec {
     ln -s "$out/opt/Koala.Clash/koala-clash" \
       "$out/bin/koala-clash"
 
-    runHook postInstall
+      install -Dm644 ${./icon.png} \
+        $out/share/icons/hicolor/256x256/apps/koala-clash.png
+
+      runHook postInstall
   '';
 
   meta = with lib; {
