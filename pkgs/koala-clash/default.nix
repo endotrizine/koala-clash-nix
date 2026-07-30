@@ -74,19 +74,19 @@ stdenv.mkDerivation rec {
     libsecret
     systemd
 
-    libX11
+    libx11
     libxcb
-    libXi
-    libXcursor
-    libXdamage
-    libXext
-    libXfixes
-    libXrandr
-    libXrender
-    libXtst
-    libXScrnSaver
-    libXinerama
-    libXcomposite
+    libxi
+    libxcursor
+    libxdamage
+    libxext
+    libxfixes
+    libxrandr
+    libxrender
+    libxtst
+    libxScrnSaver
+    libxinerama
+    libxcomposite
     libxshmfence
   ];
 
