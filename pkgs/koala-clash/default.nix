@@ -74,20 +74,20 @@ stdenv.mkDerivation rec {
     libsecret
     systemd
 
-    xorg.libX11
-    xorg.libxcb
-    xorg.libXi
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libXScrnSaver
-    xorg.libXinerama
-    xorg.libXcomposite
-    xorg.libxshmfence
+    libX11
+    libxcb
+    libXi
+    libXcursor
+    libXdamage
+    libXext
+    libXfixes
+    libXrandr
+    libXrender
+    libXtst
+    libXScrnSaver
+    libXinerama
+    libXcomposite
+    libxshmfence
   ];
 
   unpackPhase = ''
