@@ -47,11 +47,11 @@
 
 stdenv.mkDerivation rec {
   pname = "koala-clash";
-  version = "1.5.0";
+  version = "1.6.1";
 
   src = fetchurl {
     url = "https://github.com/coolcoala/koala-clash/releases/download/${version}/Koala.Clash_amd64.deb";
-    hash = "sha256-ofUDBrOb5ClGd2vWcanPqWCQOULJdfwLj1WUPUJdSMA=";
+    hash = "sha256-sBRC1+xEThtkCz39eCyHqdQJ0BLOIFeWIJhgQCeSl6M=";
   };
 
   nativeBuildInputs = [
